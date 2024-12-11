@@ -1,6 +1,5 @@
 class Network:
-    def __init__(self, name: str, adj_matrix: list[list[int]] = None) -> None:
-        self.name = name
+    def __init__(self, adj_matrix: list[list[int]] = None) -> None:
         self.tables = {}
         self.routers = self.graph_build(adj_matrix)
 
@@ -34,6 +33,8 @@ class Network:
                             # update the table of the current router
                             self.tables[router][node] = (self.tables[router][neigh][0] + distance_vector[0], neigh)
                 
+    def get_tables(self) -> dict[int, dict[int, int]]:
+        return self.tables
     
     def print_tables(self) -> None:
         for router, connections in self.tables.items():
