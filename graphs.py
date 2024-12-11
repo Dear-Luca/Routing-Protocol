@@ -1,3 +1,4 @@
+# Description: This file contains the adjacency matrices of the graphs used in the project.
 adjacency_matrices = {
     "Matrix 1": [[0, 7, 5, 0, 3, 6, 0, 9, 0, 2],
                  [7, 0, 8, 4, 2, 1, 5, 0, 7, 3],

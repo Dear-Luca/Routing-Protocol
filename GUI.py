@@ -5,6 +5,8 @@ from graphs import adjacency_matrices
 
 class GUI:
     def __init__(self) -> None:
+        """Constructor for the GUI class.
+        """
         # create the main window
         self.root = tk.Tk()
         self.root.title("Routing Protocol")
@@ -47,19 +49,28 @@ class GUI:
 
         self.update_graph_and_tables()
 
-    def update_matrix(self, selection):
+    def update_matrix(self, selection : str) -> None:
+        """Updates the selected matrix.
+
+        Args:
+            selection (str): The selected matrix.
+        """
         #Update the selected matrix and recalculate network and graph.
         self.adj_matrix = adjacency_matrices[selection]
         self.network = Network(self.adj_matrix)
         self.update_graph_and_tables()
 
     def update_graph_and_tables(self):
+        """Updates the graph and tables.
+        """
         #Update both the graph and the tables.
         self.canvas.delete("all")  
         self.update_tables()       
         self.draw_graph()         
 
     def draw_graph(self):
+        """Draws the graph on the canvas.
+        """
         matrix = self.adj_matrix
         num_nodes = len(matrix)
         radius = 300  
@@ -92,6 +103,8 @@ class GUI:
             self.canvas.create_text(x, y, text=str(i), fill="black")
 
     def update_tables(self):
+        """Updates the tables frame.
+        """
         # clear the tables frame
         for widget in self.tables_frame.winfo_children():
             widget.destroy()
